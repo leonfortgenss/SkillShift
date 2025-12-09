@@ -20,7 +20,7 @@ const focusAreas = [
   {
     title: "Dribbling control",
     delta: "+4% week / +12% month",
-    description: "Cone exits smoother, maintain under-2s split per gate.",
+    description: "Cone exits smoother — keep the under-2s split per gate.",
   },
   {
     title: "Weak-foot accuracy",
