@@ -1,18 +1,18 @@
 const insights = [
   {
     title: "Current strengths",
-    detail: "Weak-foot usage up 6% and hips stay open on exits.",
-    accent: "text-success",
+    detail: "Body angle is more open and weak-foot usage is up 6% this week.",
+    accent: "#1DE9B6",
   },
   {
     title: "Micro-improvement",
-    detail: "Tighten first-touch window to under 1.2s per cone gate.",
-    accent: "text-accent-primary",
+    detail: "Tighten first touch when exiting cones; keep touches under 1.2s cadence.",
+    accent: "#00E676",
   },
   {
-    title: "What to try next",
-    detail: "Record a left-foot wall pass set using the AR ghost to verify alignment.",
-    accent: "text-accent-secondary",
+    title: "Next upload",
+    detail: "Record a left-foot wall pass set with the AR ghost to check hip alignment.",
+    accent: "#69F0AE",
   },
 ];
 
@@ -25,265 +25,131 @@ const focusAreas = [
   {
     title: "Weak-foot accuracy",
     delta: "+6% week / +15% month",
-    description: "Release height stabilized; plant 8–10cm wider to stay balanced.",
+    description: "Release height stabilized; keep planting foot 8–10cm wider.",
   },
   {
     title: "Shooting power",
     delta: "+2% week / +5% month",
-    description: "Hip drive improving; bias follow-through angle by +6° this week.",
-  },
-];
-
-const progressMetrics = [
-  {
-    label: "Weak-foot usage",
-    value: "42%",
-    change: "+8%",
-  },
-  {
-    label: "Dribble control",
-    value: "87",
-    change: "+12%",
-  },
-  {
-    label: "Shooting accuracy",
-    value: "78",
-    change: "+5%",
-  },
-  {
-    label: "Cone drill speed",
-    value: "1.9s",
-    change: "-0.2s",
+    description: "Hip drive improving, focus on follow-through angle next session.",
   },
 ];
 
 export default function Home() {
   return (
-    <main className="mx-auto flex max-w-6xl flex-col gap-8 px-6 py-10">
-      <div className="flex flex-col gap-4 md:flex-row md:items-center md:justify-between">
-        <div>
-          <p className="label-muted">SkillShift</p>
-          <h1 className="text-3xl font-semibold">Welcome back, ready to record?</h1>
-          <p className="text-secondary mt-1 text-sm">
-            AI feedback stays private. Tier and ranked mode adjust only when you opt in.
+    <main className="main-grid">
+      <header className="grid-2">
+        <div className="card">
+          <p className="muted-label">Momentum score</p>
+          <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center" }}>
+            <div>
+              <h2 style={{ fontSize: 40, margin: "4px 0" }}>86</h2>
+              <p className="text-secondary">Consistent uploads and sharper cone exits</p>
+            </div>
+            <span className="badge">+8.2% vs last week</span>
+          </div>
+        </div>
+        <div className="card">
+          <p className="muted-label">Current tier</p>
+          <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center" }}>
+            <div>
+              <h2 style={{ fontSize: 32, margin: "4px 0" }}>Platinum</h2>
+              <p className="text-secondary">Next unlock: Diamond (needs 2.5% weak-foot gain)</p>
+            </div>
+            <button className="button-primary">View blockers</button>
+          </div>
+        </div>
+      </header>
+
+      <section className="grid-2">
+        <div className="card">
+          <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center" }}>
+            <h2>Last upload</h2>
+            <button className="button-primary">Upload new clip</button>
+          </div>
+          <p className="text-secondary" style={{ marginTop: 8 }}>
+            42-second dribble + wall pass set with AR ghost framing.
           </p>
-        </div>
-        <div className="flex flex-wrap gap-3">
-          <span className="pill text-sm text-secondary">Face blur • ON</span>
-          <span className="pill text-sm text-secondary">Tone: Analytical</span>
-          <span className="pill text-sm text-secondary">Ranked: Off</span>
-        </div>
-      </div>
-
-      <section className="grid gap-4 md:grid-cols-3">
-        <div className="card flex flex-col gap-3">
-          <div className="flex items-start justify-between">
+          <div style={{ marginTop: 16 }} className="grid-3">
             <div>
-              <p className="label-muted">Momentum score</p>
-              <div className="mt-1 flex items-baseline gap-2">
-                <span className="text-4xl font-semibold leading-none">86</span>
-                <span className="badge">+8.2% vs last week</span>
-              </div>
-              <p className="text-secondary mt-2">Consistent uploads and sharper cone exits.</p>
+              <p className="muted-label">Review time</p>
+              <p style={{ fontWeight: 700 }}>32s</p>
             </div>
-          </div>
-          <div className="glass shadow-soft">
-            <div className="h-2 w-full overflow-hidden rounded-full bg-[#1b1f22]">
-              <div className="gradient-bar h-full w-[72%]" />
-            </div>
-            <p className="label-muted mt-2">Upload rhythm is stable. Keep 2–3 clips/week.</p>
-          </div>
-        </div>
-
-        <div className="card flex flex-col gap-4">
-          <div className="flex items-center justify-between">
             <div>
-              <p className="label-muted">Current tier</p>
-              <h2 className="text-2xl">Platinum</h2>
-              <p className="text-secondary mt-1">Next unlock: Diamond (needs +2.5% weak-foot gain).</p>
+              <p className="muted-label">Flags</p>
+              <p style={{ color: "#FF5252", fontWeight: 700 }}>Hip alignment drift</p>
             </div>
-            <button className="rounded-full bg-gradient-to-r from-accent-primary to-accent-secondary px-4 py-2 text-sm font-semibold text-[#0d0f10] shadow-soft">
-              View blockers
-            </button>
-          </div>
-          <div className="grid grid-cols-2 gap-3">
-            <div className="glass p-3">
-              <p className="label-muted">Typical blocker</p>
-              <p className="mt-1 font-semibold">Weak-foot release</p>
-              <p className="text-secondary text-sm">Stability drops when cadence speeds up.</p>
-            </div>
-            <div className="glass p-3">
-              <p className="label-muted">Tier path</p>
-              <p className="mt-1 font-semibold">Diamond → Elite</p>
-              <p className="text-secondary text-sm">Needs consistent 1.8s cone splits.</p>
-            </div>
-          </div>
-        </div>
-
-        <div className="card flex flex-col gap-3">
-          <p className="label-muted">Quick actions</p>
-          <div className="grid gap-3 sm:grid-cols-2">
-            <button className="glass flex items-center justify-between rounded-xl px-4 py-3 text-left text-sm font-semibold text-text-primary shadow-soft transition hover:scale-[1.01]">
-              <div>
-                <p>Record with AR overlay</p>
-                <p className="text-secondary text-xs">Ghost outline guides cones + ball.</p>
-              </div>
-              <span className="badge">AR</span>
-            </button>
-            <button className="glass flex items-center justify-between rounded-xl px-4 py-3 text-left text-sm font-semibold text-text-primary shadow-soft transition hover:scale-[1.01]">
-              <div>
-                <p>Upload a clip</p>
-                <p className="text-secondary text-xs">Auto-analysis in under a minute.</p>
-              </div>
-              <span className="badge">+ Momentum</span>
-            </button>
-          </div>
-          <div className="rounded-xl border border-dashed border-[#1f252a] p-3 text-sm text-secondary">
-            Privacy defaults: face-blur on, recordings stay local unless you share.
-          </div>
-        </div>
-      </section>
-
-      <section className="grid gap-4 lg:grid-cols-3">
-        <div className="card lg:col-span-2">
-          <div className="flex items-center justify-between">
             <div>
-              <p className="label-muted">Last upload</p>
-              <h2 className="text-xl">42s dribble + wall pass set</h2>
-              <p className="text-secondary mt-1">Captured with AR ghost framing enabled.</p>
-            </div>
-            <button className="rounded-full border border-[#1f252a] px-3 py-2 text-sm font-semibold text-text-primary transition hover:border-accent-primary">
-              Upload new clip
-            </button>
-          </div>
-          <div className="mt-4 grid gap-3 sm:grid-cols-3">
-            <div className="glass p-3">
-              <p className="label-muted">Review time</p>
-              <p className="mt-1 text-xl font-semibold">32s</p>
-              <p className="text-secondary text-sm">Analysis completed automatically.</p>
-            </div>
-            <div className="glass p-3">
-              <p className="label-muted">Flags</p>
-              <p className="mt-1 text-xl font-semibold text-[#ff9494]">Hip alignment drift</p>
-              <p className="text-secondary text-sm">Appears when sprint exits spike.</p>
-            </div>
-            <div className="glass p-3">
-              <p className="label-muted">Boost</p>
-              <p className="mt-1 text-xl font-semibold text-accent-primary">+2.1% momentum</p>
-              <p className="text-secondary text-sm">Upload cadence stays consistent.</p>
+              <p className="muted-label">Boost</p>
+              <p style={{ color: "#00E676", fontWeight: 700 }}>+2.1% Momentum</p>
             </div>
           </div>
         </div>
 
-        <div className="card flex flex-col gap-3">
-          <div className="flex items-center justify-between">
-            <h2 className="text-xl">Focus for the week</h2>
+        <div className="card">
+          <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center" }}>
+            <h2>Focus for the week</h2>
             <span className="badge">Analytical mode</span>
           </div>
-          <div className="grid-auto-fit">
+          <div style={{ marginTop: 12 }} className="grid-3">
             {focusAreas.map((focus) => (
-              <div key={focus.title} className="glass p-3">
-                <p className="label-muted">{focus.title}</p>
-                <p className="mt-1 font-semibold">{focus.delta}</p>
-                <p className="text-secondary text-sm">{focus.description}</p>
+              <div key={focus.title}>
+                <p className="muted-label">{focus.title}</p>
+                <p style={{ fontWeight: 700 }}>{focus.delta}</p>
+                <p className="text-secondary">{focus.description}</p>
               </div>
             ))}
           </div>
         </div>
       </section>
 
-      <section className="grid gap-4 lg:grid-cols-2">
+      <section className="grid-2">
         <div className="card">
-          <div className="flex items-center justify-between">
-            <h2 className="text-xl">Skill insights</h2>
+          <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center" }}>
+            <h2>Skill insights</h2>
             <span className="badge">Auto-updated</span>
           </div>
-          <div className="mt-3 grid gap-3">
+          <div style={{ marginTop: 12, display: "grid", gap: 12 }}>
             {insights.map((insight) => (
-              <div key={insight.title} className="glass p-3">
-                <p className={`label-muted ${insight.accent}`}>{insight.title}</p>
-                <p className="text-secondary text-sm">{insight.detail}</p>
+              <div
+                key={insight.title}
+                style={{
+                  padding: 14,
+                  borderRadius: 14,
+                  border: `1px solid ${insight.accent}33`,
+                  background: "rgba(255, 255, 255, 0.02)",
+                }}
+              >
+                <p className="muted-label" style={{ color: insight.accent }}>
+                  {insight.title}
+                </p>
+                <p style={{ margin: 0 }} className="text-secondary">
+                  {insight.detail}
+                </p>
               </div>
             ))}
           </div>
         </div>
 
-        <div className="card flex flex-col gap-3">
-          <div className="flex items-center justify-between">
-            <h2 className="text-xl">Progress preview</h2>
-            <span className="badge">Week view</span>
+        <div className="card">
+          <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center" }}>
+            <h2>Ranked mode</h2>
+            <button className="button-primary">Opt into ranked</button>
           </div>
-          <div className="grid-auto-fit">
-            {progressMetrics.map((metric) => (
-              <div key={metric.label} className="glass p-3">
-                <p className="label-muted">{metric.label}</p>
-                <div className="mt-2 flex items-center justify-between">
-                  <p className="text-xl font-semibold">{metric.value}</p>
-                  <span className="rounded-full bg-[#0f1619] px-2 py-1 text-xs font-semibold text-accent-primary">
-                    {metric.change}
-                  </span>
-                </div>
-                <div className="mt-3 h-1.5 w-full overflow-hidden rounded-full bg-[#1b1f22]">
-                  <div className="gradient-bar h-full w-[70%]" />
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      <section className="grid gap-4 lg:grid-cols-2">
-        <div className="card flex flex-col gap-3">
-          <div className="flex items-center justify-between">
-            <h2 className="text-xl">Weekly growth card</h2>
-            <span className="badge">Friday drop</span>
-          </div>
-          <div className="glass p-4">
-            <p className="label-muted">Improvement areas</p>
-            <p className="mt-1 font-semibold">Weak-foot release, body angle on sprint exits</p>
-            <p className="text-secondary text-sm">3 micro-tasks queued for your next two uploads.</p>
-          </div>
-          <div className="glass p-4">
-            <p className="label-muted">Plateau warnings</p>
-            <p className="mt-1 font-semibold text-[#ff9494]">Cadence slows after 4 reps</p>
-            <p className="text-secondary text-sm">AI suggests shorter 20s sets to keep pace.</p>
-          </div>
-          <div className="glass p-4">
-            <p className="label-muted">Micro-tasks</p>
-            <ul className="mt-1 list-disc space-y-1 pl-5 text-secondary text-sm">
-              <li>Record 3 left-foot wall passes with AR ghost overlay.</li>
-              <li>Time cone exits; keep under 1.9s average.</li>
-              <li>Upload with “analytical + subtle encouragement” tone to compare.</li>
-            </ul>
-          </div>
-        </div>
-
-        <div className="card flex flex-col gap-3">
-          <div className="flex items-center justify-between">
-            <h2 className="text-xl">Ranked mode</h2>
-            <button className="rounded-full border border-[#1f252a] px-3 py-2 text-sm font-semibold text-text-primary transition hover:border-accent-primary">
-              Opt into ranked
-            </button>
-          </div>
-          <p className="text-secondary text-sm">
-            Improvement-based leaderboard. Fully private until you toggle it on. Fairness guardrails
-            weight recent uploads and camera context.
+          <p className="text-secondary" style={{ marginTop: 8 }}>
+            Improvement-based leaderboard. Private by default until you opt in.
           </p>
-          <div className="grid-auto-fit">
-            <div className="glass p-3">
-              <p className="label-muted">Peers tracked</p>
-              <p className="mt-1 text-xl font-semibold">18</p>
-              <p className="text-secondary text-sm">Matched by skill tier + age band.</p>
+          <div style={{ marginTop: 14 }} className="grid-3">
+            <div>
+              <p className="muted-label">Peers tracked</p>
+              <p style={{ fontWeight: 700 }}>18</p>
             </div>
-            <div className="glass p-3">
-              <p className="label-muted">Current slot</p>
-              <p className="mt-1 text-xl font-semibold">#6 (speed tier)</p>
-              <p className="text-secondary text-sm">Moves only when you opt in.</p>
+            <div>
+              <p className="muted-label">Current slot</p>
+              <p style={{ fontWeight: 700 }}>#6 (speed tier)</p>
             </div>
-            <div className="glass p-3">
-              <p className="label-muted">Growth delta</p>
-              <p className="mt-1 text-xl font-semibold text-accent-primary">+12% month</p>
-              <p className="text-secondary text-sm">Improvement-weighted, not streak-based.</p>
+            <div>
+              <p className="muted-label">Growth delta</p>
+              <p style={{ fontWeight: 700, color: "#00E676" }}>+12% month</p>
             </div>
           </div>
         </div>
